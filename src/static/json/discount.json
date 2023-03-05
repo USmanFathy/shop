@@ -1,0 +1,14 @@
+{
+    "coupons":{
+        "z23z5z5" : 20,
+        "moazPro" : 50,
+        "ewlkl" : 70,
+        "wiwi22w" : 80
+    },
+    "tax":{
+        "price" : 12
+    },
+    "shipping":{
+        "price" : 10
+    }
+}

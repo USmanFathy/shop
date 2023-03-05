@@ -1,0 +1,301 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+
+    
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/Gallery.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/animtion.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normaliz.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web\css\all.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    
+    
+    <!-- tajwal font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    
+
+
+
+
+
+    <!-- start landing -->
+    <div class="landing">
+
+        <div class="all-title-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Gallery</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item active"><a href="{% url 'index:home' %}" style="color: white;">Home </a>/
+                                Gallery </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- end landing -->
+
+
+
+    <!-- products-box -->
+    <div class="products-box">
+        <div class="products-box-pad container">
+            <div class="products-box-top">
+                <div class="top-text">
+
+                    <h2>Fruits & Vegetables
+                    </h2>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti magni odio eos consequuntur!
+                        Sunt.</p>
+
+                </div>
+
+                <!-- btn box -->
+                <div class="btn-box">
+                    
+                    <button onclick="all_only();" id="all_btn" class="is-click">All</button>
+                    {% for c in categories %}
+                    <button id="bulbs_btn" class="">{{c.name}}</button>
+
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+
+
+            <div class="products-contant">
+
+
+                {% for product in products %}
+                <div class="card" id="bulbs">
+
+                    <div class="img-drop-down">
+                        <img src="{% if product.image %}{{product.image.url}}{% endif %}" class="card-img-top" alt="...">
+
+                        {% if product.available %}
+                        <div class="type">
+                            new
+                        </div>
+                        {% else %}
+                        <div class="type">
+                            SALE
+                        </div>
+                        {% endif %}
+
+                        <div class="mask-icon">
+
+                            <div class="add-card">
+                                <a href="{% url 'cart:cart_add' product.id %}">Add to Cart</a>
+                            </div>
+
+                            <div class="veiw">
+
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="view">
+                                    <i class="fas fa-eye"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="Copmare">
+                                    <i class="fas fa-sync-alt"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left"
+                                    title="add to wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                
+                </div>
+                {% endfor %}
+                <!--  -->
+                {% comment %} <div class="card" id="fruits">
+
+                    <div class="img-drop-down">
+                        <img src="img/img-pro-02.jpg" class="card-img-top" alt="...">
+
+
+                        <div class="type">
+                            new
+                        </div>
+
+
+
+                        <div class="mask-icon">
+
+
+
+                            <div class="veiw">
+
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="view">
+                                    <i class="fas fa-eye"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="Copmare">
+                                    <i class="fas fa-sync-alt"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left"
+                                    title="add to wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                
+                </div>
+                <!--  -->
+
+                <div class="card" id="podded">
+
+
+                    <div class="img-drop-down">
+                        <img src="img/img-pro-03.jpg" class="card-img-top" alt="...">
+
+
+                        <div class="type">
+
+                        </div>
+
+
+                        <div class="mask-icon">
+
+                            <div class="veiw">
+
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="view">
+                                    <i class="fas fa-eye"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="Copmare">
+                                    <i class="fas fa-sync-alt"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left"
+                                    title="add to wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                
+                </div>
+                <!--  -->
+
+                <div class="card" id="root">
+
+
+                    <div class="img-drop-down">
+                        <img src="img/img-pro-04.jpg" class="card-img-top" alt="...">
+
+
+                        <div class="type">
+
+                        </div>
+
+
+
+                        <div class="mask-icon">
+
+
+                            <div class="veiw">
+
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="view">
+                                    <i class="fas fa-eye"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="Copmare">
+                                    <i class="fas fa-sync-alt"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left"
+                                    title="add to wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                
+                </div> {% endcomment %}
+                <!--  -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- products-box -->
+
+
+<!--js   -->
+
+
+<script src="{% static 'js/Gallery.js' %}"></script>
+
+<script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-1.2.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- <script src="js/main.js"></script> -->
+
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+
+
+</body>
+</html>

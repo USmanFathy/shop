@@ -1,0 +1,956 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- css file -->
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animtion.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normaliz.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web\css\all.min.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+
+    <!-- tajwal font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- start header -->
+    <header>
+
+        <div class="contain">
+
+            <div class="main-top">
+
+                <div class="p1-cont">
+
+                    <div class="pad10pxL">
+
+                        <select class="form-select max767" aria-label="Default select example">
+                            <!-- <option selected>¥ JPY</option> -->
+                            <option value="1" style="background-color: white; color: black;">¥ JPY</option>
+                            <option value="2" style="background-color: white; color: black;">$ USD</option>
+                            <option value="3" style="background-color: white; color: black;">€ EUR</option>
+                        </select>
+
+
+                    </div>
+                    <!--  -->
+                    <div class="pad10pxL max767">
+                        <span class="num-1">Call US :- <a
+                                href="https://api.whatsapp.com/send?phone= +11 900 800 100&text=????"> +11 900 800
+                                100</a></span>
+                    </div>
+                    <!--  -->
+                    <div class="pad10pxL ac-p3">
+
+                        <div>
+                            <a href="#"><i class="fas fa-user-alt"></i> My Account</a>
+                        </div>
+                        <span class="user-s-none">|</span>
+                        <div>
+                            <a href="#"><i class="fas fa-location-arrow"></i> Our location</a>
+                        </div>
+                        <span class="user-s-none">|</span>
+                        <div> <a href="{% url 'contact:contact' %}"><i class="fas fa-headset"></i> Contact Us</a></div>
+                    </div>
+
+                </div>
+                <!--  -->
+                <div class="p2-cont">
+                    <div class="offer-section max767">
+
+                        <div class="slid-show max767">
+
+                            <li class="mySlides slid-1"> 20% off Entire Purchase Promo code: offT30
+                            </li>
+
+
+                            <li class="mySlides slid-1">2</li>
+
+
+                            <li class="mySlides slid-1">3</li>
+
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="regstry">
+
+                        <select class="form-select" aria-label="Default select example">
+                            <!-- <option selected>¥ JPY</option> -->
+                            <option value="1" style="background-color: white; color: black;">Regster here</option>
+                            <option value="2" style="background-color: white; color: black;">Sign Up</option>
+                        </select>
+
+                    </div>
+
+
+                </div>
+                <!--  -->
+            </div>
+
+
+        </div>
+
+        <div class="nav-ad-st-cont">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light big-h">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" width="120px" alt="" srcset=""></a>
+
+                    <div class="or1">
+
+                        <button class="ser-btn" onclick="ser_tog();" id="ser_btn"><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <div class="or2">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i
+                                class="fas fa-shopping-bag"></i> My Cart</button>
+
+
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link one" aria-current="page" href="{% url 'index:home' %}">Home</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'contact:about' %}">About Us</a>
+                            </li>
+
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    SHOP </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="{% url 'shop:product_list' %}">Sidebar Shop</a></li>
+                                    {% comment %} <li><a class="dropdown-item" href="{% url 'shop:product_detail' %}">Shop Detail</a></li> {% endcomment %}
+                                    <li><a class="dropdown-item" href="{% url 'cart:cart_detail' %}">Cart</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'checkout:order_create' %}">Checkout</a></li>
+                                    <li><a class="dropdown-item" href="my-account.html">My Account</a></li>
+                                    <li><a class="dropdown-item" href="wishlist.html">Wishlist</a></li>
+
+
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'contact:gallery' %}">Gallery</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'contact:contact' %}">Contact Us</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </nav>
+
+
+            <div class="Search-form" id="search_farm">
+
+                <form action="" method="get">
+
+                    <button><i class="fas fa-search"></i></button>
+
+                    <input type="text" name="" placeholder="Search" id="">
+
+                </form>
+
+                <div><button onclick="ser_tog();"><i class="fas fa-times"></i></button></div>
+
+
+            </div>
+
+        </div>
+        <!--  -->
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel"></h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+                <div class="orders-box">
+
+                    <div class="the-orders">
+
+                        <ul>
+                        {% for item in cart %}
+                            <li>
+                                <a href="">
+
+                                    <img src="{{item.product.image.url}}" alt="img" srcset="">
+
+                                    <h6>{{item.product.name}}</h6>
+
+                                    <p>{{item.quantity}}x - ${{item.price}}</p>
+
+                                </a>
+
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+
+                    </div>
+
+                    <div class="orders-box-bottom">
+
+                        <div><a href="{% url 'cart:cart_detail' %}" class="v-btn">VIEW CART</a></div>
+
+                        <div><span class="span-flex">total:<p>{{cart.get_total_price}}</p></span></div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <!--  -->
+
+    </header>
+
+    <!-- end search -->
+
+
+<!-- scroll  to top btn -->
+
+<button class="btn-top" onclick="scroll_now();"><i class="fas fa-arrow-up"></i></button>
+
+
+<!-- end scroll -->
+
+
+
+    <!-- start landing -->
+
+    <div class="landing">
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'img/banner-01.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/banner-02.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/banner-03.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            <div class="overlay"></div>
+
+            <div class="la-box">
+                <h2>Welcome To
+                    Freshshop</h2>
+                <p>See how your users experience your website in realtime or view
+                    trends to see any changes in performance over time.</p>
+                <div><a href="{% url 'shop:product_list' %}">Shop New</a></div>
+            </div>
+
+        </div>
+
+
+
+        <!--  -->
+    </div>
+
+
+
+    <!-- end landing -->
+
+
+
+    <!-- start categories-shop -->
+
+    <div class="categories-shop">
+
+        <div class="categories-shop-grid container">
+
+            {% for product in products %}
+            <div class="card">
+                <img src="{{product.image.url}}" class="card-img-top" alt="...">
+                <a href="{{product.get_absloute_url}}">{{product.name}}</a>
+
+            </div>
+            {% endfor %}
+            {% comment %} <!--  -->
+            <div class="card">
+                <img src="img/healthy-vegetables-wooden-table.jpg" class="card-img-top" alt="...">
+                <a href="#">Lorem ipsum dolor</a>
+
+            </div>
+            <!--  -->
+            <div class="card">
+                <img src="img/healthy-vegetables-wooden-table.jpg" class="card-img-top" alt="...">
+                <a href="#">Lorem ipsum dolor</a>
+            </div> {% endcomment %}
+            <!--  -->
+
+
+            <!--  -->
+        </div>
+
+
+
+    </div>
+
+
+    <!-- end categories-shop -->
+
+
+    <!-- start Presentation -->
+    <div class="Presentation">
+        <div class="Presentation-pad container">
+
+
+
+
+            <div class="img-box">
+                <img src="{% static 'img/add-img-01.jpg' %}" alt="" srcset="">
+            </div>
+
+            <div class="img-box">
+                <img src="{% static 'img/add-img-02.jpg' %}" alt="" srcset="">
+            </div>
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+    <!-- end Presentation -->
+
+
+
+
+    <!-- products-box -->
+    <div class="products-box">
+        <div class="products-box-pad container">
+            <div class="products-box-top">
+                <div class="top-text">
+
+                    <h2>Fruits & Vegetables
+                    </h2>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti magni odio eos consequuntur!
+                        Sunt.</p>
+
+                </div>
+
+                <div class="btn-box">
+                    
+                    <button onclick="all_only();" id="all_btn" class="is-click">All</button>
+                    {% for c in categories %}
+                    <button onclick="top_only();" id="top_btn">{{c.name}}</button>
+
+             
+
+
+                    {% endfor %}
+                </div>
+
+            </div>
+
+
+
+            <div class="products-contant">
+                {% for product in products %}
+                <div class="card" id="Top_featured">
+
+                    <div class="img-drop-down">
+                        <img src="{% if product.image %}{{product.image.url}}{% endif %}" class="card-img-top" alt="...">
+
+                        {% if product.available %}
+                        <div class="type">
+                            new
+                        </div>
+                        {% else %}
+                        <div class="type">
+                            SALE
+                        </div>
+                        {% endif %}
+
+                        <div class="mask-icon">
+
+                            <div class="add-card">
+                                <a href="{% url 'cart:cart_add' product.id %}">Add to Cart</a>
+                            </div>
+
+                            <div class="veiw">
+
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="view">
+                                    <i class="fas fa-eye"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="Copmare">
+                                    <i class="fas fa-sync-alt"></i> </a>
+
+                                <a href="{% url 'wishlist:wishlist_add' product.id %}" class="" data-bs-toggle="tooltip" data-bs-placement="left"
+                                    title="add to wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-body">
+                        <p class="card-text"><a href='{{product.get_absolute_url}}'>{{product.name}}</a>
+                        </p>
+                        <p class="price">${{product.price}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                <!--  -->
+                {% comment %} <div class="card" id="Top_featured">
+
+                    <div class="img-drop-down">
+                        <img src="img/img-pro-02.jpg" class="card-img-top" alt="...">
+
+
+                        <div class="type">
+                            new
+                        </div>
+
+
+
+                        <div class="mask-icon">
+
+
+                            <div class="add-card">
+                                <a href="#">Add to Cart</a>
+                            </div>
+
+                            <div class="veiw">
+
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="view">
+                                    <i class="fas fa-eye"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="Copmare">
+                                    <i class="fas fa-sync-alt"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left"
+                                    title="add to wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet
+                        </p>
+                        <p class="price">$13</p>
+
+                    </div>
+                </div>
+                <!--  -->
+
+                <div class="card" id="Best_seller">
+
+
+                    <div class="img-drop-down">
+                        <img src="img/img-pro-03.jpg" class="card-img-top" alt="...">
+
+
+                        <div class="type">
+                            SALE
+                        </div>
+
+
+                        <div class="mask-icon">
+
+                            <div class="add-card">
+                                <a href="#">Add to Cart</a>
+                            </div>
+
+                            <div class="veiw">
+
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="view">
+                                    <i class="fas fa-eye"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="Copmare">
+                                    <i class="fas fa-sync-alt"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left"
+                                    title="add to wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet
+                        </p>
+                        <p class="price">$23</p>
+
+                    </div>
+                </div> {% endcomment %}
+                <!--  -->
+
+                {% comment %} <div class="card" id="Best_seller">
+
+
+                    <div class="img-drop-down">
+                        <img src="img/img-pro-04.jpg" class="card-img-top" alt="...">
+
+
+                        <div class="type">
+                            SALE
+                        </div>
+
+
+
+                        <div class="mask-icon">
+
+                            <div class="add-card">
+                                <a href="#">Add to Cart</a>
+                            </div>
+
+                            <div class="veiw">
+
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="view">
+                                    <i class="fas fa-eye"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left" title="Copmare">
+                                    <i class="fas fa-sync-alt"></i> </a>
+
+                                <a href="" class="" data-bs-toggle="tooltip" data-bs-placement="left"
+                                    title="add to wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet
+                        </p>
+                        <p class="price">$21</p>
+
+                    </div>
+                </div> {% endcomment %}
+                <!--  -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- products-box -->
+
+
+    <!-- start blogs -->
+
+    <div class="latest-blog">
+
+        <div class="container">
+
+
+            <div class="top-c">
+
+                <h2>latest blog
+                </h2>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.
+
+                </p>
+            </div>
+
+            <div class="blogs-card">
+                {% for  b in blog %}
+                <div class="card">
+                    <img src="{{b.image.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3>{{b.title}}.</h3>
+                        <p class="card-text">{{b.description}}.</p>
+
+                        <div class="blog-link">
+
+                            <a href=""><i class="far fa-heart"></i></a>
+
+                            <a href=""><i class="fas fa-eye"></i></a>
+
+                            <a href=""><i class="far fa-comments"></i></a>
+                        </div>
+
+                        <!--  -->
+                    </div>
+                </div>
+                {% endfor %}
+                <!--  -->
+
+                {% comment %} <div class="card">
+                    <img src="img/blog-img-01.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3>Lorem ipsum dolor sit.</h3>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+
+                        <div class="blog-link">
+
+                            <a href=""><i class="far fa-heart"></i></a>
+
+                            <a href=""><i class="fas fa-eye"></i></a>
+
+                            <a href=""><i class="far fa-comments"></i></a>
+                        </div>
+
+                        <!--  -->
+                    </div>
+                </div>
+                <!--  -->
+
+                <div class="card">
+                    <img src="img/blog-img-02.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3>Lorem ipsum dolor sit.</h3>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+
+                        <div class="blog-link">
+
+                            <a href=""><i class="far fa-heart"></i></a>
+
+                            <a href=""><i class="fas fa-eye"></i></a>
+
+                            <a href=""><i class="far fa-comments"></i></a>
+                        </div>
+
+                        <!--  -->
+                    </div>
+                </div> {% endcomment %}
+                <!--  -->
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- end Blog -->
+
+
+
+
+    <!-- start footer -->
+
+    <footer>
+
+
+
+    <!-- buttom slider photos -->
+
+    <div class="footer-slide-photos">
+
+
+        <div class="container">
+
+
+            <div class="owl-carousel owl-carousel1 owl-theme">
+                
+                
+
+                <div class="item"><img src="img/instagram-img-01.jpg" alt=""></div>
+                <div class="item"><img src="img/instagram-img-02.jpg" alt=""></div>
+                <div class="item"><img src="img/instagram-img-03.jpg" alt=""></div>
+                <div class="item"><img src="img/instagram-img-04.jpg" alt=""></div>
+                <div class="item"><img src="img/instagram-img-05.jpg" alt=""></div>
+                <div class="item"><img src="img/instagram-img-06.jpg" alt=""></div>
+                <div class="item"><img src="img/instagram-img-07.jpg" alt=""></div>
+                <div class="item"><img src="img/instagram-img-08.jpg" alt=""></div>
+                <div class="item"><img src="img/instagram-img-09.jpg" alt=""></div>
+            
+            
+            
+            
+            </div>
+            
+                
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- end buttom slider photos -->
+
+
+        <div class="fo-pad">
+
+
+            <div class="part1">
+
+
+
+                <div class="card card1">
+                    <div class="top">
+                        <h2>
+                            Business Time
+
+                        </h2>
+                    </div>
+
+                    <p>Monday - Friday: 08.00am to 05.00pm
+                        Saturday: 10.00am to 08.00pm
+                        Sunday: Closed</p>
+
+                </div>
+                <!--  -->
+                <div class="card card2">
+                    <div class="top">
+                        <h2>
+                            Newsletter
+
+                        </h2>
+                    </div>
+
+                    <form class="newsletter-box">
+                        <div class="form-group">
+                            <input class="" type="email" name="Email" placeholder="Email Address*">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <button class="btn hvr-hover" type="submit">Submit</button>
+                    </form>
+
+                </div>
+                <!--  -->
+                <div class="card card3">
+                    <div class="top">
+                        <h2>
+                            Social Media
+
+                        </h2>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                    <ul class="social-ul">
+                        <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+
+
+                    </ul>
+                </div>
+                <!--  -->
+
+
+
+            </div>
+
+
+            <div class="part2">
+
+
+
+
+
+                <div class="card card1">
+                    <div class="top">
+                        <h2>
+                            ABOUT FRESHSHOP
+
+                        </h2>
+                    </div>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. <br><br> Lorem ipsum dolor sit amet,
+                        consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+
+                </div>
+
+                <div class="card card2">
+                    <div class="top">
+                        <h2>
+                            INFORMATION
+
+                        </h2>
+                    </div>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Our Sitemap</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                    </ul>
+
+                </div>
+                <div class="card card3">
+                    <div class="top">
+                        <h2>
+                            CONTACT US
+
+                        </h2>
+                    </div>
+
+                    <ul>
+                        <li>
+                            <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street
+                                Wichita,<br> KS 67213 </p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705
+                                    770</a></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-envelope"></i>Email: <a
+                                    href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </footer>
+
+
+
+
+    <!-- end footer -->
+
+
+
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static 'js/home.js' %}"></script>
+
+    <!-- <script src="js/home.js' %}"></script> -->
+    <script>
+
+    </script>
+
+
+</body>
+
+</html>
